@@ -13,6 +13,7 @@ var ballState: BallState;
 var canvas: HTMLCanvasElement | null;
 var ballRadius: number;
 var floor: number;
+var ballImage: HTMLImageElement | null;
 
 function calculateBallRadius(size: PetSize): number {
     if (size === PetSize.nano) {
@@ -32,10 +33,14 @@ export function setupBallThrowing(
     canvasName: string,
     petSize: PetSize,
     floor_: number,
+    basePetUri: string,
 ): void {
     canvas = document.getElementById(canvasName) as HTMLCanvasElement;
     ballRadius = calculateBallRadius(petSize);
     floor = floor_;
+
+    ballImage = new Image();
+    ballImage.src = `${basePetUri}/icon/pipis.png`;
 }
 
 function resetBall(): void {
@@ -167,6 +172,19 @@ function drawBall() {
     }
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (ballImage && ballImage.complete && ballImage.naturalWidth > 0) {
+        const size = ballRadius * 6;
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(
+            ballImage,
+            ballState.cx - size / 2,
+            ballState.cy - size / 2,
+            size,
+            size,
+        );
+        return;
+    }
 
     ctx.beginPath();
     ctx.arc(ballState.cx, ballState.cy, ballRadius, 0, 2 * Math.PI, false);

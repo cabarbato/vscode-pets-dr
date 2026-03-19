@@ -60,6 +60,7 @@
     "vscode-pets.petType.bunny": "Bunny",
     "vscode-pets.petType.squirrel": "Squirrel",
     "vscode-pets.petType.skeleton": "Skeleton",
+    "vscode-pets.petType.spamton": "Spamton",
     "vscode-pets.petType.deno": "Deno",
     "vscode-pets.petType.morph": "Morph",
     "vscode-pets.petType.panda": "Panda",
@@ -76,6 +77,8 @@
     "vscode-pets.theme.forest" : "Forest",
     "vscode-pets.theme.castle" : "Castle",
     "vscode-pets.theme.beach" : "Beach",
+    "vscode-pets.theme.cyber" : "Cyberworld",
+    "vscode-pets.theme.store" : "Store",
     "vscode-pets.theme.winter" : "Winter",
     "vscode-pets.theme.autumn" : "Autumn"
 }

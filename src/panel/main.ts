@@ -263,12 +263,16 @@ export function petPanelApp(
         themeKind,
         petSize,
     );
+    backgroundEl!.style.backgroundRepeat = themeInfo.backgroundRepeat();
+    backgroundEl!.style.backgroundSize = themeInfo.backgroundSize(petSize);
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     foregroundEl!.style.backgroundImage = themeInfo.foregroundImageUrl(
         basePetUri,
         themeKind,
         petSize,
     );
+    foregroundEl!.style.backgroundRepeat = themeInfo.foregroundRepeat();
+    foregroundEl!.style.backgroundSize = themeInfo.foregroundSize(petSize);
     const floor = themeInfo.floor(petSize);
 
     console.log(
@@ -305,7 +309,7 @@ export function petPanelApp(
     }
 
     initCanvas(PET_CANVAS_ID);
-    setupBallThrowing(PET_CANVAS_ID, petSize, floor);
+    setupBallThrowing(PET_CANVAS_ID, petSize, floor, basePetUri);
 
     if (throwBallWithMouse) {
         dynamicThrowOn(allPets.pets);
