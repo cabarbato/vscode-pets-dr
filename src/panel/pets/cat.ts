@@ -209,4 +209,7 @@ export const CAT_NAMES: ReadonlyArray<string> = [
     'Felix',
     'Duchess',
     'Byrt',
+    'Nianian',
+    'Twylah',
+    'Giselle',
 ];
