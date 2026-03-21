@@ -27,6 +27,7 @@ interface AbstractThemeInfo {
     floor(size: PetSize): number;
     backgroundRepeat(): string;
     backgroundSize(petSize: PetSize): string;
+    backgroundPosition(): string;
     backgroundImageUrl(
         basePetUri: string,
         themeKind: ColorThemeKind,
@@ -55,6 +56,9 @@ export class ThemeInfo implements AbstractThemeInfo {
     }
     // eslint-disable-next-line no-unused-vars
     backgroundSize(petSize: PetSize): string {
+        return '';
+    }
+    backgroundPosition(): string {
         return '';
     }
     backgroundImageUrl(
@@ -159,7 +163,7 @@ class CyberThemeInfo extends ThemeInfo {
         _themeKind: ColorThemeKind,
         _petSize: PetSize,
     ): string {
-        return `url('${basePetUri}/backgrounds/cyber/cyberworld.webp')`;
+        return '';
     }
 
     foregroundImageUrl(
@@ -197,12 +201,16 @@ class StoreThemeInfo extends ThemeInfo {
         return 'cover';
     }
 
+    backgroundPosition(): string {
+        return 'center';
+    }
+
     backgroundImageUrl(
         basePetUri: string,
         _themeKind: ColorThemeKind,
         _petSize: PetSize,
     ): string {
-        return `url('${basePetUri}/backgrounds/store/trash zone store.png')`;
+        return `url('${basePetUri}/backgrounds/store/store.gif')`;
     }
 
     foregroundImageUrl(
@@ -277,6 +285,7 @@ export const THEMES: Record<Theme, ThemeInfo> = {
         floor: (size: PetSize) => 0,
         backgroundRepeat: () => '',
         backgroundSize: (petSize: PetSize) => '',
+        backgroundPosition: () => '',
         backgroundImageUrl: (
             basePetUri: string,
             themeKind: ColorThemeKind,

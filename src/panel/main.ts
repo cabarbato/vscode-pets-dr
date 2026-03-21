@@ -265,6 +265,7 @@ export function petPanelApp(
     );
     backgroundEl!.style.backgroundRepeat = themeInfo.backgroundRepeat();
     backgroundEl!.style.backgroundSize = themeInfo.backgroundSize(petSize);
+    backgroundEl!.style.backgroundPosition = themeInfo.backgroundPosition();
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     foregroundEl!.style.backgroundImage = themeInfo.foregroundImageUrl(
         basePetUri,
