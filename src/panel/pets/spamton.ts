@@ -1,4 +1,4 @@
-import { PetColor } from '../../common/types';
+import { PetColor, PetSize } from '../../common/types';
 import { BasePetType } from '../basepettype';
 import { States } from '../states';
 
@@ -43,19 +43,30 @@ export class Spamton extends BasePetType {
         ],
     };
 
-    constructor(...args: ConstructorParameters<typeof BasePetType>) {
-        const spriteRoot = `${args[6]}/black`;
+    constructor(
+        spriteElement: HTMLImageElement,
+        collisionElement: HTMLDivElement,
+        speechElement: HTMLDivElement,
+        size: PetSize,
+        left: number,
+        bottom: number,
+        petRoot: string,
+        floor: number,
+        name: string,
+        speed: number,
+    ) {
+        // Images are stored in a subfolder named by color
         super(
-            args[0],
-            args[1],
-            args[2],
-            args[3],
-            args[4],
-            args[5],
-            spriteRoot,
-            args[7],
-            args[8],
-            args[9],
+            spriteElement,
+            collisionElement,
+            speechElement,
+            size,
+            left,
+            bottom,
+            `${petRoot}/black`,
+            floor,
+            name,
+            speed,
         );
     }
 
@@ -64,19 +75,23 @@ export class Spamton extends BasePetType {
     }
 
     get hello(): string {
-    const quotes = [
-    "KILL YOUR TV",
-    'NOW IS YOUR CHANCE TO BE A [[BIG SHOT]]!',
-    'I CAN BE YOUR [[NEO]]!',
-    'DON\'T MISS THIS OPPORTUNITY!',
-    'DELISIS KROMER'
-    ]
+        const quotes = [
+            'KILL YOUR TV',
+            'NOW IS YOUR CHANCE TO BE A [[BIG SHOT]]!',
+            'I CAN BE YOUR [[NEO]]!',
+            "DON'T MISS THIS OPPORTUNITY!",
+            'DELISIS KROMER',
+        ];
         return quotes[Math.floor(Math.random() * quotes.length)];
     }
 }
 
 export const SPAMTON_NAMES: ReadonlyArray<string> = [
     'Spamton',
+    'The Creature',
+    'Spamt',
+    'Number 1 Rated Salesman1997',
     'Big Shot',
-    'Neo',
+    'Mailman',
+    'Spammy'
 ];

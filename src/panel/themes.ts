@@ -145,50 +145,6 @@ class BeachThemeInfo extends ThemeInfo {
     }
 }
 
-class CyberThemeInfo extends ThemeInfo {
-    name = 'cyber';
-    description = 'A cyberworld theme';
-    effect = new StarEffect();
-
-    backgroundRepeat(): string {
-        return 'no-repeat';
-    }
-
-    backgroundSize(petSize: PetSize): string {
-        return 'cover';
-    }
-
-    backgroundImageUrl(
-        basePetUri: string,
-        _themeKind: ColorThemeKind,
-        _petSize: PetSize,
-    ): string {
-        return '';
-    }
-
-    foregroundImageUrl(
-        _basePetUri: string,
-        _themeKind: ColorThemeKind,
-        _petSize: PetSize,
-    ): string {
-        return '';
-    }
-
-    floor(size: PetSize): number {
-        switch (size) {
-            case PetSize.small:
-                return 56;
-            case PetSize.medium:
-                return 76;
-            case PetSize.large:
-                return 114;
-            case PetSize.nano:
-            default:
-                return 43;
-        }
-    }
-}
-
 class StoreThemeInfo extends ThemeInfo {
     name = 'store';
     description = 'A store theme';
@@ -303,7 +259,6 @@ export const THEMES: Record<Theme, ThemeInfo> = {
     forest: new ForestThemeInfo(),
     castle: new CastleThemeInfo(),
     beach: new BeachThemeInfo(),
-    cyber: new CyberThemeInfo(),
     store: new StoreThemeInfo(),
     winter: new WinterThemeInfo(),
     autumn: new AutumnThemeInfo(),

@@ -300,7 +300,6 @@
                             "forest",
                             "castle",
                             "beach",
-                            "cyber",
                             "store",
                             "winter",
                             "autumn"
@@ -312,7 +311,6 @@
                             "%vscode-pets.theme.forest%",
                             "%vscode-pets.theme.castle%",
                             "%vscode-pets.theme.beach%",
-                            "%vscode-pets.theme.cyber%",
                             "%vscode-pets.theme.store%",
                             "%vscode-pets.theme.winter%",
                             "%vscode-pets.theme.autumn%"
