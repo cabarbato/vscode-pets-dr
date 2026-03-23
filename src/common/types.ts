@@ -45,6 +45,7 @@ export const enum PetType {
     skeleton = 'skeleton',
     snail = 'snail',
     snake = 'snake',
+    spamton = 'spamton',
     squirrel = 'squirrel',
     totoro = 'totoro',
     turtle = 'turtle',
@@ -78,6 +79,7 @@ export const enum Theme {
     forest = 'forest',
     castle = 'castle',
     beach = 'beach',
+    store = 'store',
     winter = 'winter',
     autumn = 'autumn',
 }
@@ -121,6 +123,7 @@ export const ALL_PETS = [
     PetType.skeleton,
     PetType.snail,
     PetType.snake,
+    PetType.spamton,
     PetType.squirrel,
     PetType.totoro,
     PetType.turtle,
@@ -159,6 +162,7 @@ export const ALL_THEMES = [
     Theme.forest,
     Theme.castle,
     Theme.beach,
+    Theme.store,
     Theme.winter,
     Theme.autumn,
 ];

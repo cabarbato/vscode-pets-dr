@@ -20,6 +20,7 @@ import { RubberDuck } from './pets/rubberduck';
 import { Skeleton } from './pets/skeleton';
 import { Snail } from './pets/snail';
 import { Snake } from './pets/snake';
+import { Spamton } from './pets/spamton';
 import { Squirrel } from './pets/squirrel';
 import { Totoro } from './pets/totoro';
 import { Turtle } from './pets/turtle';
@@ -227,6 +228,8 @@ export function createPet(
             return new Snail(...standardPetArguments, PetSpeed.verySlow);
         case PetType.snake:
             return new Snake(...standardPetArguments, PetSpeed.verySlow);
+        case PetType.spamton:
+            return new Spamton(...standardPetArguments, PetSpeed.normal);
         case PetType.squirrel:
             return new Squirrel(...standardPetArguments, PetSpeed.veryFast);
         case PetType.rubberduck:
@@ -288,6 +291,8 @@ export function availableColors(petType: PetType): PetColor[] {
             return Snail.possibleColors;
         case PetType.snake:
             return Snake.possibleColors;
+        case PetType.spamton:
+            return Spamton.possibleColors;
         case PetType.squirrel:
             return Squirrel.possibleColors;
         case PetType.rubberduck:

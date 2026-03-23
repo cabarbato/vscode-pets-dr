@@ -226,6 +226,7 @@
                             "snail",
                             "bunny",
                             "skeleton",
+                            "spamton",
                             "deno",
                             "morph",
                             "panda"
@@ -256,6 +257,7 @@
                             "%vscode-pets.petType.snail%",
                             "%vscode-pets.petType.bunny%",
                             "%vscode-pets.petType.skeleton%",
+                            "%vscode-pets.petType.spamton%",
                             "%vscode-pets.petType.deno%",
                             "%vscode-pets.petType.morph%",
                             "%vscode-pets.petType.panda%"
@@ -298,6 +300,7 @@
                             "forest",
                             "castle",
                             "beach",
+                            "store",
                             "winter",
                             "autumn"
                         ],
@@ -308,6 +311,7 @@
                             "%vscode-pets.theme.forest%",
                             "%vscode-pets.theme.castle%",
                             "%vscode-pets.theme.beach%",
+                            "%vscode-pets.theme.store%",
                             "%vscode-pets.theme.winter%",
                             "%vscode-pets.theme.autumn%"
                         ]

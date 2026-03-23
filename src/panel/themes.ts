@@ -25,11 +25,16 @@ interface AbstractThemeInfo {
     effect?: Effect;
 
     floor(size: PetSize): number;
+    backgroundRepeat(): string;
+    backgroundSize(petSize: PetSize): string;
+    backgroundPosition(): string;
     backgroundImageUrl(
         basePetUri: string,
         themeKind: ColorThemeKind,
         petSize: PetSize,
     ): string;
+    foregroundRepeat(): string;
+    foregroundSize(petSize: PetSize): string;
     foregroundImageUrl(
         basePetUri: string,
         themeKind: ColorThemeKind,
@@ -46,6 +51,16 @@ export class ThemeInfo implements AbstractThemeInfo {
     floor(size: PetSize): number {
         return 0;
     }
+    backgroundRepeat(): string {
+        return '';
+    }
+    // eslint-disable-next-line no-unused-vars
+    backgroundSize(petSize: PetSize): string {
+        return '';
+    }
+    backgroundPosition(): string {
+        return '';
+    }
     backgroundImageUrl(
         basePetUri: string,
         themeKind: ColorThemeKind,
@@ -53,6 +68,13 @@ export class ThemeInfo implements AbstractThemeInfo {
     ): string {
         var _themeKind = normalizeColorThemeKind(themeKind);
         return `url('${basePetUri}/backgrounds/${this.name}/background-${_themeKind}-${petSize}.png')`;
+    }
+    foregroundRepeat(): string {
+        return '';
+    }
+    // eslint-disable-next-line no-unused-vars
+    foregroundSize(petSize: PetSize): string {
+        return '';
     }
     foregroundImageUrl(
         basePetUri: string,
@@ -123,6 +145,53 @@ class BeachThemeInfo extends ThemeInfo {
     }
 }
 
+class StoreThemeInfo extends ThemeInfo {
+    name = 'store';
+    description = 'A store theme';
+
+    backgroundRepeat(): string {
+        return 'no-repeat';
+    }
+
+    backgroundSize(petSize: PetSize): string {
+        return 'cover';
+    }
+
+    backgroundPosition(): string {
+        return 'center';
+    }
+
+    backgroundImageUrl(
+        basePetUri: string,
+        _themeKind: ColorThemeKind,
+        _petSize: PetSize,
+    ): string {
+        return `url('${basePetUri}/backgrounds/store/store.gif')`;
+    }
+
+    foregroundImageUrl(
+        _basePetUri: string,
+        _themeKind: ColorThemeKind,
+        _petSize: PetSize,
+    ): string {
+        return '';
+    }
+
+    floor(size: PetSize): number {
+        switch (size) {
+            case PetSize.small:
+                return 62;
+            case PetSize.medium:
+                return 82;
+            case PetSize.large:
+                return 123;
+            case PetSize.nano:
+            default:
+                return 47;
+        }
+    }
+}
+
 class WinterThemeInfo extends ThemeInfo {
     name = 'winter';
     description = 'A winter theme';
@@ -170,11 +239,16 @@ export const THEMES: Record<Theme, ThemeInfo> = {
         description: 'No theme',
         /* eslint-disable no-unused-vars */
         floor: (size: PetSize) => 0,
+        backgroundRepeat: () => '',
+        backgroundSize: (petSize: PetSize) => '',
+        backgroundPosition: () => '',
         backgroundImageUrl: (
             basePetUri: string,
             themeKind: ColorThemeKind,
             petSize: PetSize,
         ) => '',
+        foregroundRepeat: () => '',
+        foregroundSize: (petSize: PetSize) => '',
         foregroundImageUrl: (
             basePetUri: string,
             themeKind: ColorThemeKind,
@@ -185,6 +259,7 @@ export const THEMES: Record<Theme, ThemeInfo> = {
     forest: new ForestThemeInfo(),
     castle: new CastleThemeInfo(),
     beach: new BeachThemeInfo(),
+    store: new StoreThemeInfo(),
     winter: new WinterThemeInfo(),
     autumn: new AutumnThemeInfo(),
 };
